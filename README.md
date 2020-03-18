@@ -1,4 +1,4 @@
-# tobanteAudio - Giovanni
+# tobanteGaming - Giovanni
 
 - [GitHub Repository](https::/github.com/tobanteGaming/giovanni)
 - [API Reference](https://tobanteGaming.github.io/giovanni/classes.html)
