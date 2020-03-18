@@ -24,3 +24,7 @@ clean:
 .PHONY: stats
 stats:
 	cloc giovanni
+
+.PHONY: format
+format:
+	find giovanni -iname '*.h' -o -iname '*.hpp' -o -iname '*.cpp' | xargs clang-format -i
