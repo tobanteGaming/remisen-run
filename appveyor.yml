@@ -19,16 +19,6 @@ build:
 # BUILD
 build_script:
   - cmd: >-
-      mkdir build_debug
-
-      cd build_debug
-
-      cmake .. -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE:STRING=Debug -Wno-dev
-
-      cmake --build . --config "Debug"
-
-      cd ..
-
       mkdir build_release
 
       cd build_release
