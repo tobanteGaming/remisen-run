@@ -1,8 +1,33 @@
-project(giovanni-desktop)
+project(giovanni)
 
+# library
+set(giovanni_library_sources
+    src/game.hpp
+    src/game.cpp
+)
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${giovanni_library_sources})
+add_library(${PROJECT_NAME} ${giovanni_library_sources})
+add_library(tobanteGaming::Giovanni ALIAS ${PROJECT_NAME})
+target_include_directories(${PROJECT_NAME} PUBLIC ${SFML_INCLUDE_DIR})
+target_link_libraries(${PROJECT_NAME} PUBLIC sfml-audio sfml-graphics)
+
+# executable
 set(giovanni_desktop_sources
     src/main.cpp
 )
-add_executable(${PROJECT_NAME} ${giovanni_desktop_sources})
-target_include_directories(${PROJECT_NAME} PRIVATE ${SFML_INCLUDE_DIR})
-target_link_libraries(${PROJECT_NAME} PRIVATE sfml-audio sfml-graphics)
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${giovanni_desktop_sources})
+add_executable(giovanni-desktop ${giovanni_desktop_sources})
+target_link_libraries(giovanni-desktop PRIVATE tobanteGaming::Giovanni)
+
+# tests
+set (giovanni_test_src
+    src/main_test.cpp
+    src/game_test.cpp
+)
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${giovanni_test_src})
+add_executable(giovanni_tests ${giovanni_test_src})
+target_link_libraries(giovanni_tests 
+    PRIVATE
+        Catch2::Catch2
+)
+catch_discover_tests(giovanni_tests)

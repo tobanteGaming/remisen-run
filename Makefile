@@ -1,5 +1,5 @@
 .PHONY: default
-default: config build
+default: config build test
 
 CONFIG ?= Debug
 BUILD_DIR ?= build
@@ -11,6 +11,10 @@ config:
 .PHONY: build
 build:
 	cmake --build $(BUILD_DIR)
+
+.PHONY: test
+test:
+	cd $(BUILD_DIR) && ctest
 
 .PHONY: clean
 clean:
