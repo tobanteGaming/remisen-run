@@ -3,7 +3,7 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Giovanni");
+    sf::RenderWindow window(sf::VideoMode(1280, 720), "Giovanni");
 
     while (window.isOpen())
     {
