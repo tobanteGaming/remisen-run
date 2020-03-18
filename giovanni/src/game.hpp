@@ -7,8 +7,8 @@ namespace gio
 class Game
 {
 public:
-    Game(std::string n) : name_(n) {}
-    std::string GetName() const { return name_; }
+    Game(std::string n);
+    std::string GetName() const;
 
 private:
     std::string name_;

@@ -21,10 +21,12 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     endif()
 endif()
 
-option(GIO_BUILD_TESTS   "Build unit tests" ON)
-option(GIO_GIT_SUBMODULE "Check submodules during build" ON)
+option(GIO_BUILD_TESTS      "Build unit tests" ON)
+option(GIO_BUILD_COVERAGE   "Build unit tests" OFF)
+option(GIO_GIT_SUBMODULE    "Check submodules during build" ON)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+include(GioCodeCoverage)
 include(GioGitSubmodules)
 
 if(GIO_BUILD_TESTS)
