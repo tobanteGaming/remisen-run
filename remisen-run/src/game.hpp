@@ -2,7 +2,7 @@
 
 #include <string>
 
-namespace gio
+namespace rr
 {
 class Game
 {
@@ -13,4 +13,4 @@ public:
 private:
     std::string name_;
 };
-}  // namespace gio
+}  // namespace rr

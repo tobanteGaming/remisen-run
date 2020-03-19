@@ -2,7 +2,7 @@
 find_package(Git QUIET)
 if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
     # Update submodules as needed
-    if(GIO_GIT_SUBMODULE)
+    if(REMISENRUN_GIT_SUBMODULE)
         message(STATUS "Submodule update")
         execute_process(COMMAND ${GIT_EXECUTABLE} submodule update --init --recursive
                         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
@@ -14,5 +14,5 @@ if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
 endif()
 
 if(NOT EXISTS "${PROJECT_SOURCE_DIR}/3rd_party/SFML/CMakeLists.txt")
-    message(FATAL_ERROR "The submodules were not downloaded! GIO_GIT_SUBMODULE was turned off or failed. Please update submodules and try again.")
+    message(FATAL_ERROR "The submodules were not downloaded! REMISENRUN_GIT_SUBMODULE was turned off or failed. Please update submodules and try again.")
 endif()
