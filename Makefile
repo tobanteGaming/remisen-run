@@ -19,7 +19,7 @@ test:
 
 .PHONY: coverage
 coverage:
-	cmake -S. -G"Unix Makefiles" $(CMAKE_FLAGS) -B $(BUILD_DIR_BASE)_coverage -DREMISEN_RUNBUILD_COVERAGE=ON
+	cmake -S. -G"Unix Makefiles" $(CMAKE_FLAGS) -B $(BUILD_DIR_BASE)_coverage -DREMISENRUN_BUILD_COVERAGE=ON
 	cd $(BUILD_DIR_BASE)_coverage && make -j3
 	cd $(BUILD_DIR_BASE)_coverage && lcov -c -i -d . --base-directory . -o base_cov.info
 	cd $(BUILD_DIR_BASE)_coverage && ctest
